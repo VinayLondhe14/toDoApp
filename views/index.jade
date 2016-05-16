@@ -1,0 +1,18 @@
+each item in data
+  li
+    !{item.name}
+    !{item.email}
+    !{item.age}
+    form(method="POST", action="/delete/#{item.name}?_method=DELETE")
+      input(type="submit", value="Delete")
+
+
+form(method="POST", action="/form-submit")
+  p Name
+    input(type="text", name="name")
+  p Email
+    input(type="email", name="email")
+  p Age
+    input(type="number", name="age")
+  p
+    input(type="submit")
