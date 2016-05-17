@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
+var Todo = require('../models/todo');
 
-router.use(require('./todo'));
+router.use(require('./todos'));
 
 router.get('/', function(req, res) {
-  db.get().collection('todo').find().toArray(function(err, results) {
+  Todo.all(function(err, results) {
     res.render('index', {data: results});
-    console.log(results);
-  })
+  });
 });
 
 

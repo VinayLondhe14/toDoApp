@@ -1,5 +1,6 @@
-form(method="POST", action="/form-submit")
-  p To Do
-    input(type="text", name="name")
+each item in data
+  li
+    !{item.todo}
+form(method="GET", action="/todos/new")
   p
-    input(type="submit")
+    input(type="submit", value="New Todo")
