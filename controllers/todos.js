@@ -7,7 +7,14 @@ router.get('/todos/new', function(req, res) {
 });
 
 router.post('/todos', function(req, res) {
-  Todo.create(req.body.name, function() {
+  req.assert('todo', "Todo field cant be empty").notEmpty();
+  var errors = req.validationErrors();
+  if (errors) {
+    res.render('todo', { errors: errors });
+    return;
+  }
+
+  Todo.create(req.body.todo, function() {
     res.redirect('/');
   })
 });

@@ -13,10 +13,14 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+var expressValidator = require('express-validator');
+app.use(expressValidator());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// connect to mongodb
 var db = require('./db');
 db.connect('mongodb://localhost:27017/appdb', function(err) {
   if (err) {

@@ -8,5 +8,5 @@ exports.create = function(item,cb) {
 };
 
 exports.all = function(cb) {
-  return db.get().collection('todo').find().toArray(cb);
+  return db.get().collection('todo').find().sort({_id:-1}).toArray(cb);
 };

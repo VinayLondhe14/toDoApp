@@ -1,5 +1,10 @@
+if errors
+  ul
+    for error in errors
+      li!= error.msg
+
 form(method="POST", action="/todos")
   p To Do
-    input(type="text", name="name")
+    input(type="text", name="todo")
   p
     input(type="submit", value="Create")
